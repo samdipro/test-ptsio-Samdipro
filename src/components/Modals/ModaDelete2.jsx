@@ -17,7 +17,7 @@ export default function ModalDelete2(props) {
   async function hapus() {
     try {
       console.log(id);
-      const result = await api.put("articles/" + id);
+      const result = await api.delete("articles/" + id);
       console.log(result);
     } catch (error) {
       console.log(error);
