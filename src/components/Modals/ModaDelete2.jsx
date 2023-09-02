@@ -1,7 +1,5 @@
 import {
-  Icon,
   Button,
-  Center,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -11,10 +9,9 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import { MdDelete } from "react-icons/md";
 import { api } from "../../api/api";
 
-export default function ModalDelete(props) {
+export default function ModalDelete2(props) {
   const { id, title } = props;
 
   async function hapus() {
@@ -29,15 +26,9 @@ export default function ModalDelete(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Center
-        padding={"0.2rem"}
-        cursor={"pointer"}
-        onClick={onOpen}
-        bgColor={"#FF1D1D"}
-        borderRadius={"100%"}
-      >
-        <Icon fontSize={"1.3rem"} color={"white"} as={MdDelete}></Icon>
-      </Center>
+      <Button onClick={onOpen} colorScheme="red">
+        Delete
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

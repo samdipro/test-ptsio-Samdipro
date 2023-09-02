@@ -1,4 +1,4 @@
-import { Container, Flex, Center, Icon, Text } from "@chakra-ui/react";
+import { Container, Flex, Center, Icon, Text, Box } from "@chakra-ui/react";
 import TopBar from "../components/TopBar";
 import SideBar from "../components/SideBar";
 import { MdArticle, MdPlaylistAdd } from "react-icons/md";
@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom";
 export default function HomePage() {
   const nav = useNavigate();
   return (
-    <Container maxW={"1500px"} display={"flex"}>
+    <Container maxW={"1500px"} display={"flex"} height={"100vh"}>
       <SideBar />
       <TopBar />
       <Flex
         position={"absolute"}
         maxW={"1468px"}
-        padding={"96px 0 0 212px"}
+        padding={"96px 0 0 206px"}
         bgColor={"#F7F7F7"}
         width={"100%"}
         height={"100%"}
@@ -24,12 +24,11 @@ export default function HomePage() {
           padding={"1rem 2rem"}
           gap={"1rem"}
           width={"100%"}
-          // height={"100vh"}
         >
           <Flex>
             <Flex
               alignItems={"center"}
-              // justifyContent={"center"}
+              height={"100%"}
               gap={"0.2rem"}
               padding={"0.3rem"}
               borderBottom={"2px solid #51B15C"}
@@ -37,6 +36,7 @@ export default function HomePage() {
               cursor={"pointer"}
               _hover={{ backgroundColor: "white" }}
               width={"12rem"}
+              maxH={"4rem"}
             >
               <Center
                 border={"2px solid #51B15C"}
@@ -57,13 +57,13 @@ export default function HomePage() {
             </Flex>
             <Flex
               alignItems={"center"}
-              // justifyContent={"center"}
               gap={"0.2rem"}
               padding={"0.3rem"}
               color={"grey"}
               cursor={"pointer"}
               _hover={{ backgroundColor: "white", color: "#51B15C" }}
               width={"12rem"}
+              maxH={"4rem"}
               onClick={() => nav("/addit/new")}
             >
               <Center
@@ -83,9 +83,10 @@ export default function HomePage() {
               </Flex>
             </Flex>
           </Flex>
-          {/* List of Articles */}
-          <ListArticle></ListArticle>
-          {/* List of Articles */}
+
+          <Box height={"90%"}>
+            <ListArticle></ListArticle>
+          </Box>
         </Flex>
       </Flex>
     </Container>

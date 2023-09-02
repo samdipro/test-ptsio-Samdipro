@@ -1,20 +1,21 @@
-import { Container, Flex, Center, Icon, Text } from "@chakra-ui/react";
+import { Container, Flex, Center, Icon, Text, Box } from "@chakra-ui/react";
 import TopBar from "../components/TopBar";
 import SideBar from "../components/SideBar";
 import { MdArticle, MdPlaylistAdd } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import Addit from "../components/Addit";
 
 export default function EditPage() {
   const nav = useNavigate();
   return (
-    <Container maxW={"1500px"} display={"flex"}>
+    <Container maxW={"1500px"} display={"flex"} height={"100vh"}>
       <SideBar />
       <TopBar />
       <Flex
+        bgColor={"#F7F7F7"}
         position={"absolute"}
         maxW={"1468px"}
-        padding={"96px 0 0 212px"}
-        bgColor={"#F7F7F7"}
+        padding={"96px 0 0 206px"}
         width={"100%"}
         height={"100%"}
       >
@@ -27,13 +28,14 @@ export default function EditPage() {
           <Flex>
             <Flex
               alignItems={"center"}
-              // justifyContent={"center"}
+              height={"100%"}
               gap={"0.2rem"}
               padding={"0.3rem"}
-              color={"grey"}
+              color={"grey "}
               cursor={"pointer"}
               _hover={{ backgroundColor: "white", color: "#51B15C" }}
               width={"12rem"}
+              maxH={"4rem"}
               onClick={() => nav("/")}
             >
               <Center
@@ -63,6 +65,7 @@ export default function EditPage() {
               cursor={"pointer"}
               _hover={{ backgroundColor: "white", color: "#51B15C" }}
               width={"12rem"}
+              maxH={"4rem"}
             >
               <Center
                 border={"2px solid"}
@@ -81,9 +84,9 @@ export default function EditPage() {
               </Flex>
             </Flex>
           </Flex>
-          {/* edited article */}
-          <Flex bgColor={"white"} padding={"2rem 1rem"} height={"100%"}></Flex>
-          {/* edited article */}
+          <Box height={"90%"}>
+            <Addit />
+          </Box>
         </Flex>
       </Flex>
     </Container>
