@@ -10,15 +10,17 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { api } from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 export default function ModalDelete2(props) {
+  const nav = useNavigate();
   const { id, title } = props;
 
   async function hapus() {
     try {
       console.log(id);
-      const result = await api.delete("articles/" + id);
-      console.log(result);
+      await api.delete("articles/" + id);
+      return nav("/");
     } catch (error) {
       console.log(error);
     }

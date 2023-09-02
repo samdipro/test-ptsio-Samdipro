@@ -137,7 +137,11 @@ export default function ListArticle() {
                           onClick={() => nav("/addit/" + val.id)}
                         ></Icon>
                       </Center>
-                      <ModalDelete id={val.id} title={val.title} />
+                      <ModalDelete
+                        fetch={fetch}
+                        id={val.id}
+                        title={val.title}
+                      />
                     </Flex>
                   </Td>
                 </Tr>

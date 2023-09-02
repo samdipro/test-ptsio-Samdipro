@@ -15,13 +15,13 @@ import { MdDelete } from "react-icons/md";
 import { api } from "../../api/api";
 
 export default function ModalDelete(props) {
-  const { id, title } = props;
+  const { id, title, fetch } = props;
 
   async function hapus() {
     try {
       console.log(id);
-      const result = await api.delete("articles/" + id);
-      console.log(result);
+      await api.delete("articles/" + id);
+      return fetch();
     } catch (error) {
       console.log(error);
     }
