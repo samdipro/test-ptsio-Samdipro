@@ -26,7 +26,7 @@ export default function SideBar() {
   }, [click]);
   return (
     <Box
-      width={click ? "240px" : "100px"}
+      width={click ? "100px" : "240px"}
       left={"0"}
       top={"0"}
       zIndex={"2"}
@@ -54,7 +54,7 @@ export default function SideBar() {
           padding={"2rem 1rem"}
           fontWeight={"bold"}
           justifyContent={"center"}
-          display={click ? "flex" : "none"}
+          display={click ? "none" : "flex"}
         >
           <Image height={"2.5rem"} src={react}></Image>
           <Text color={"#51B15C"}> React</Text>
@@ -66,7 +66,7 @@ export default function SideBar() {
           fontSize={"2xl"}
           alignItems={"center"}
           gap={"0.2rem"}
-          display={click ? "flex" : "none"}
+          display={click ? "none" : "flex"}
         >
           <Flex
             borderLeft={"2px solid #51B15C"}

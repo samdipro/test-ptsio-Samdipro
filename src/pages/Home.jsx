@@ -16,7 +16,8 @@ export default function HomePage() {
       <Flex
         position={"absolute"}
         maxW={"1468px"}
-        padding={clickSelector.click ? "96px 0 0 206px" : "96px 0 0 106px"}
+        // padding={clickSelector.click ? "96px 0 0 206px" : "96px 0 0 106px"}
+        padding={clickSelector.click ? "96px 0 0 106px" : "96px 0 0 206px"}
         bgColor={"#F7F7F7"}
         width={"100%"}
         height={"100%"}
