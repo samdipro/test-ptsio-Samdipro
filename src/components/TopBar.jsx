@@ -6,7 +6,6 @@ import men from "../assets/man.png";
 export default function TopBar() {
   return (
     <Box
-      // maxW={"1260px"}
       width={"100%"}
       height={"94px"}
       top={"0"}

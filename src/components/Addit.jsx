@@ -11,12 +11,12 @@ import {
 import { MdArticle } from "react-icons/md";
 import { api } from "../api/api";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ModalDelete2 from "./Modals/ModaDelete2";
 import Swal from "sweetalert2";
 
 export default function Addit() {
-  // const [data, setData] = useState();
+  const nav = useNavigate();
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [textareaValue, setTextareaValue] = useState("");
@@ -42,6 +42,7 @@ export default function Addit() {
           content: textareaValue,
         });
         console.log(result);
+        nav("/addit/" + result.data.data.id);
       } else {
         const result = await api.put("articles/" + id, {
           title: title,
@@ -118,7 +119,9 @@ export default function Addit() {
             >
               Save
             </Button>
-            <ModalDelete2 id={id} title={title}></ModalDelete2>
+            {id !== "new" ? (
+              <ModalDelete2 id={id} title={title}></ModalDelete2>
+            ) : null}
           </Flex>
         </Flex>
       </Flex>

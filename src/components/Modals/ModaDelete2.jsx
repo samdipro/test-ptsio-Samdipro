@@ -8,8 +8,12 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Icon,
+  Center,
+  Flex,
 } from "@chakra-ui/react";
 import { api } from "../../api/api";
+import { BsTrash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 export default function ModalDelete2(props) {
@@ -35,9 +39,24 @@ export default function ModalDelete2(props) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Delete</ModalHeader>
+          <ModalHeader>
+            <Flex alignItems={"center"} gap={"1rem"}>
+              <Center
+                bgColor={"#F7F7F7"}
+                borderRadius={"100%"}
+                padding={"1rem"}
+              >
+                <Icon color={"red"} as={BsTrash}></Icon>
+              </Center>
+              Delete Article
+            </Flex>
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Article: {title}</ModalBody>
+          <ModalBody>
+            Are you sure you want to delete{" "}
+            <span style={{ fontWeight: "bold" }}>{title}</span>? You can’t undo
+            this action.
+          </ModalBody>
 
           <ModalFooter>
             <Button variant="ghost" mr={3} onClick={onClose}>
