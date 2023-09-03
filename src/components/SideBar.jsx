@@ -10,12 +10,23 @@ import {
 import { LuListEnd } from "react-icons/lu";
 import { RiArticleFill } from "react-icons/ri";
 import react from "../assets/structure.png";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 export default function SideBar() {
+  const [click, setClick] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({
+      type: "click",
+      payload: {
+        click: click,
+      },
+    });
+  }, [click]);
   return (
     <Box
-      // height={"100%"}
-      width={"240px"}
+      width={click ? "240px" : "100px"}
       left={"0"}
       top={"0"}
       zIndex={"2"}
@@ -25,9 +36,11 @@ export default function SideBar() {
         <Flex padding={"0 1rem 2rem 1rem"} justifyContent={"start"}>
           <Center
             cursor={"pointer"}
+            _hover={{ opacity: "0.8" }}
             padding={"0.4rem"}
             borderRadius={"100%"}
             bgColor={"#51B15C"}
+            onClick={() => setClick(!click)}
           >
             <Icon fontSize={"1.5rem"} as={LuListEnd}></Icon>
           </Center>
@@ -41,8 +54,8 @@ export default function SideBar() {
           padding={"2rem 1rem"}
           fontWeight={"bold"}
           justifyContent={"center"}
+          display={click ? "flex" : "none"}
         >
-          {/* <Icon color={"#5ed3f3"} as={FaReact}></Icon> */}
           <Image height={"2.5rem"} src={react}></Image>
           <Text color={"#51B15C"}> React</Text>
         </Flex>
@@ -53,6 +66,7 @@ export default function SideBar() {
           fontSize={"2xl"}
           alignItems={"center"}
           gap={"0.2rem"}
+          display={click ? "flex" : "none"}
         >
           <Flex
             borderLeft={"2px solid #51B15C"}

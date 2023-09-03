@@ -4,8 +4,10 @@ import SideBar from "../components/SideBar";
 import { MdArticle, MdPlaylistAdd } from "react-icons/md";
 import ListArticle from "../components/ListArticle";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function HomePage() {
+  const clickSelector = useSelector((state) => state.click);
   const nav = useNavigate();
   return (
     <Container maxW={"1500px"} display={"flex"} height={"100vh"}>
@@ -14,7 +16,7 @@ export default function HomePage() {
       <Flex
         position={"absolute"}
         maxW={"1468px"}
-        padding={"96px 0 0 206px"}
+        padding={clickSelector.click ? "96px 0 0 206px" : "96px 0 0 106px"}
         bgColor={"#F7F7F7"}
         width={"100%"}
         height={"100%"}
