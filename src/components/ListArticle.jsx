@@ -58,7 +58,6 @@ export default function ListArticle() {
     }
   }
 
-  console.log(data);
   useEffect(() => {
     fetch();
   }, [total, page]);
@@ -169,7 +168,8 @@ export default function ListArticle() {
           alignItems={"center"}
           padding={"1rem"}
         >
-          <Flex>
+          <Flex alignItems={"center"} gap={"0.4rem"}>
+            Show:
             <Select
               height={"2rem"}
               value={total}

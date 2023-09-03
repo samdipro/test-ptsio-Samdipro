@@ -35,20 +35,17 @@ export default function Addit() {
 
   async function edit() {
     try {
-      console.log(id);
       if (id === "new") {
         const result = await api.post("articles", {
           title: title,
           content: textareaValue,
         });
-        console.log(result);
         nav("/addit/" + result.data.data.id);
       } else {
         const result = await api.put("articles/" + id, {
           title: title,
           content: textareaValue,
         });
-        console.log(result);
       }
       Swal.fire({
         position: "center",
@@ -62,8 +59,6 @@ export default function Addit() {
     }
   }
 
-  // console.log(data);
-  // console.log({ title, textareaValue });
   useEffect(() => {
     fetch();
   }, []);
