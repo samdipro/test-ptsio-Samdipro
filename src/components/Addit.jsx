@@ -13,9 +13,10 @@ import { api } from "../api/api";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ModalDelete2 from "./Modals/ModaDelete2";
+import Swal from "sweetalert2";
 
 export default function Addit() {
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [textareaValue, setTextareaValue] = useState("");
@@ -24,7 +25,7 @@ export default function Addit() {
   async function fetch() {
     try {
       const result = await api.get("articles/" + id);
-      setData(result.data.data);
+      // setData(result.data.data);
       setTextareaValue(result.data.data.content);
       setTitle(result.data.data.title);
     } catch (error) {
@@ -48,6 +49,13 @@ export default function Addit() {
         });
         console.log(result);
       }
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Submited",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (error) {
       console.log(error);
     }

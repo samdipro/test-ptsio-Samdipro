@@ -116,12 +116,26 @@ export default function ListArticle() {
           </Thead>
           <Tbody>
             {data?.articles?.map((val) => {
+              // get local date
               const createdAtDate = new Date(val.created_at);
+
+              // truncated title and content length
+              const maxTitleLength = 16;
+              const maxContentLength = 26;
+              const truncatedTitle =
+                val.title.length > maxTitleLength
+                  ? val.title.slice(0, maxTitleLength) + "..."
+                  : val.title;
+              const truncatedContent =
+                val.content.length > maxContentLength
+                  ? val.content.slice(0, maxContentLength) + "..."
+                  : val.content;
+
               return (
                 <Tr>
                   <Td>{createdAtDate.toLocaleString("id-ID")}</Td>
-                  <Td>{val.title}</Td>
-                  <Td>{val.content}</Td>
+                  <Td>{truncatedTitle}</Td>
+                  <Td>{truncatedContent}</Td>
                   <Td>
                     <Flex gap={"0.5rem"}>
                       <Center

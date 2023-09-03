@@ -50,7 +50,13 @@ export default function ModalDelete(props) {
             <Button variant="ghost" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="red" onClick={() => hapus()}>
+            <Button
+              colorScheme="red"
+              onClick={() => {
+                hapus();
+                onClose();
+              }}
+            >
               Delete
             </Button>
           </ModalFooter>
